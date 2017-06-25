@@ -3,17 +3,15 @@ from connect_db import *
 from query_db import *
 from db_config import *
 from queries import *
+from dml import *
 import pdb
 
-conf = return_db_config()
-
-dbh = connect_db(conf['username'],conf['password'],conf['host'],conf['database'])
-
+dbh = connect_db(db_configs())
 query = all_records()
 
-cur = dbh.cursor()
+execute_dml(dbh.cursor(),dbh, new_insert_rec())
 
-result_cursor = make_query(cur,query) 
+result_cursor = make_query(dbh.cursor(),query) 
 
 print result_cursor.column_names
 foo =  result_cursor.fetchone()[1]

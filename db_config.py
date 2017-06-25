@@ -1,7 +1,8 @@
-def return_db_config():
-  db_config = {'username':'tmosley',
+def db_configs():
+  db_config = {'user':'tmosley',
                'password':'tmosley',
                'host':'localhost',
-               'database':'test'}
+               'database':'test'
+               }
   return db_config
                
