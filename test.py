@@ -2,17 +2,14 @@ import mysql.connector
 from connect_db import *
 from query_db import *
 from db_config import *
+from queries import *
 import pdb
-
-username = 'tmosley'
-password = 'tmosley'
-host = 'localhost'
-database = 'test'
 
 conf = return_db_config()
 
 dbh = connect_db(conf['username'],conf['password'],conf['host'],conf['database'])
-query = "select * from tablename"
+
+query = all_records()
 
 cur = dbh.cursor()
 
