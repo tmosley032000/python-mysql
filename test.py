@@ -1,6 +1,7 @@
 import mysql.connector
 from connect_db import *
 from query_db import *
+from db_config import *
 import pdb
 
 username = 'tmosley'
@@ -8,7 +9,9 @@ password = 'tmosley'
 host = 'localhost'
 database = 'test'
 
-dbh = connect_db(username,password,host,database)
+conf = return_db_config()
+
+dbh = connect_db(conf['username'],conf['password'],conf['host'],conf['database'])
 query = "select * from tablename"
 
 cur = dbh.cursor()
@@ -16,7 +19,10 @@ cur = dbh.cursor()
 result_cursor = make_query(cur,query) 
 
 print result_cursor.column_names
-print result_cursor.fetchone()
+foo =  result_cursor.fetchone()[1]
+bar = result_cursor.fetchone()[0]
+print bar
+print foo.decode('ascii','ignore')
 
 
 
