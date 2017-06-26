@@ -45,7 +45,7 @@ with open("datafile.txt", "r") as open_file:
 result_cursor = execute_query(db_cursor,all_records()) 
 
 
-
+#some code to verify db contents
 
 print result_cursor.column_names
 foo =  result_cursor.fetchone()[1]
