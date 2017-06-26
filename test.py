@@ -18,6 +18,7 @@ from random import randint
 #  return db_config
 
 dbh = connect_db(db_configs())
+db_cursor = dbh.cursor()
 
 # modules used in the next calls:
 # insert_sql = dml_statements.insert_sql()
@@ -32,18 +33,16 @@ dbh = connect_db(db_configs())
 #                }
 # return table_names 
 insert_sql = insert_sql(table_names()['tablename'])
-insert_rec(dbh.cursor(),dbh,insert_sql,(return_random(),"foobar"))
+insert_rec(db_cursor,dbh,insert_sql,(return_random(),"foobar"))
 
-cursor = dbh.cursor()
 
 with open("datafile.txt", "r") as open_file:
   for line in open_file:
-    print line
-    insert_rec(cursor,dbh,insert_sql,(return_random(),line))
+    insert_rec(db_cursor,dbh,insert_sql,(return_random(),line))
 
 
 #query all records queries.all_records()
-result_cursor = execute_query(dbh.cursor(),all_records()) 
+result_cursor = execute_query(db_cursor,all_records()) 
 
 
 
