@@ -36,7 +36,6 @@ insert_rec(dbh.cursor(),dbh,insert_sql,(return_random(),"foobar"))
 
 cursor = dbh.cursor()
 
-pdb.set_trace()
 with open("datafile.txt", "r") as open_file:
   for line in open_file:
     print line
