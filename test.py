@@ -46,12 +46,11 @@ result_cursor = execute_query(db_cursor,all_records())
 
 
 #some code to verify db contents
-
 print result_cursor.column_names
-foo =  result_cursor.fetchone()[1]
-bar = result_cursor.fetchone()[0]
-print bar
-print foo.decode('ascii','ignore')
 
-
+pdb.set_trace()
+# print all records fetchall() will remove from the queue, so fetchone() will not retrieve any records after
+all_recs = result_cursor.fetchall()
+for rec in all_recs:
+  print rec[0] ,rec[1].decode('ascii', 'ignore')
 
