@@ -37,9 +37,11 @@ with open('db_config.json') as data_file:
 # connect with json(db_config.json):
 dbh = connect_db(data['db_config'])
 
+# --OR--
 # connect with dictionary(db_config.py):
 # *** Uncomment out next line to use ***
 #dbh = connect_db(db_configs())
+
 db_cursor = dbh.cursor()
 
 #
@@ -51,13 +53,19 @@ db_cursor = dbh.cursor()
 # insert_rec = dml.insert_rec()
 
 # table_names is a tablename config found in table_name dict of db_config.py or db_config.json ** Use only one, its your choce 
-# table_names = {'tablename':'tablename',
+# dict - table_names = {'tablename':'tablename',
 #                 'foobar':'foobar'
 #                }
-# return table_names 
+#         return table_names 
+# json -   "table_names":
+#             {"tablename":"tablename"}
 #
-
+#
+# example using dict if you want to use json uncomment out the next line:
+#insert_sql = insert_sql(data['table_names']['tablename'])
 insert_sql = insert_sql(table_names()['tablename'])
+
+
 insert_rec(db_cursor,dbh,insert_sql,(return_random(),"foobar"))
 
 
