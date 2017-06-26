@@ -19,13 +19,13 @@ from random import randint
 #
 
 # 
-#for using json file for connection:
+#for using json (db_config.json) file for connection:
 #  "db_config":
 #              {"user":"tmosley","password":"tmosley","host":"localhost","database":"test"}
 with open('db_config.json') as data_file:    
     data = json.load(data_file)
 
-# for using dict for connection:
+# for using dict (db_config.py) for connection:
 # db_configs is a dict found in db_config.py ** change to connect to your DB **
 # db_config = {'user':'tmosley',
 #               'password':'tmosley',
