@@ -6,25 +6,40 @@ from queries import *
 from dml import *
 from dml_statements import *
 from get_random import *
+import json
 import pdb
 from random import randint
 
 #
 # Assumptions: 
-# 1. you have a running Mysql DB that can be accessed
-# 2. you have changed the db_config.py file to point to your DB
-# 3. you have changed/added your table name to the db_config.py file pointing to your table
-# 
+# 1. you have installed mysql.connector
+# 2. you have a running Mysql DB that can be accessed
+# 3. you have changed the db_config.py *OR* db_conig.json file to point to your DB
+# 4. you have changed/added your table name to the db_config.py or db_config.json file pointing to your table *Use only one, it's your choice
+#
 
+# 
+#for using json file for connection:
+#  "db_config":
+#              {"user":"tmosley","password":"tmosley","host":"localhost","database":"test"}
+with open('db_config.json') as data_file:    
+    data = json.load(data_file)
+
+# for using dict for connection:
 # db_configs is a dict found in db_config.py ** change to connect to your DB **
-#db_config = {'user':'tmosley',
+# db_config = {'user':'tmosley',
 #               'password':'tmosley',
 #               'host':'localhost',
 #               'database':'test'
 #               }
 #  return db_config
 
-dbh = connect_db(db_configs())
+# connect with json(db_config.json):
+dbh = connect_db(data['db_config'])
+
+# connect with dictionary(db_config.py):
+# *** Uncomment out next line to use ***
+#dbh = connect_db(db_configs())
 db_cursor = dbh.cursor()
 
 #
@@ -35,7 +50,7 @@ db_cursor = dbh.cursor()
 # return_random = get_random.return_random()
 # insert_rec = dml.insert_rec()
 
-# table_names is a tablename config found in table_name dict of db_config.py
+# table_names is a tablename config found in table_name dict of db_config.py or db_config.json ** Use only one, its your choce 
 # table_names = {'tablename':'tablename',
 #                 'foobar':'foobar'
 #                }
