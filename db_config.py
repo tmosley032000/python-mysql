@@ -5,4 +5,9 @@ def db_configs():
                'database':'test'
                }
   return db_config
-               
+
+def table_names():
+  table_names = {'tablename':'tablename', 
+                 'foobar':'foobar'
+                }
+  return table_names            
