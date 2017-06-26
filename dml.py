@@ -1,5 +1,4 @@
-def insert_rec(cur, dbh, insert_vals):
-  query = "INSERT INTO tablename(id,name)" "VALUES(%s,%s)" 
+def insert_rec(cur, dbh, query, insert_vals):
   cur.execute(query,insert_vals)
   dbh.commit()
 

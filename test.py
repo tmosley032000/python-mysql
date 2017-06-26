@@ -4,18 +4,25 @@ from query_db import *
 from db_config import *
 from queries import *
 from dml import *
+from dml_statements import *
+from get_random import *
 import pdb
 from random import randint
 
+# dbh = connect_db.connect_db()
 dbh = connect_db(db_configs())
-query = all_records()
 
+# insert_sql = dml_statements.insert_sql()
+# dbh = connect_db.connect_db()
+# insert_sql = dml_statements.insert_sql()
+# return_random = get_random.return_random()
+# insert_rec = dml.insert_rec()
 
-insert_vals = (randint(100,10000),"foobar")
+insert_sql = insert_sql()
+insert_rec(dbh.cursor(),dbh,insert_sql,(return_random(),"foobar"))
 
-insert_rec(dbh.cursor(),dbh,insert_vals)
-
-result_cursor = make_query(dbh.cursor(),query) 
+#query all records queries.all_records()
+result_cursor = execute_query(dbh.cursor(),all_records()) 
 
 print result_cursor.column_names
 foo =  result_cursor.fetchone()[1]

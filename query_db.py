@@ -1,5 +1,5 @@
 
-def make_query(cur,query):
+def execute_query(cur,query):
   cur.execute(query)
   return cur 
 
