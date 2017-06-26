@@ -1,0 +1,7 @@
+{  
+  "db_config": 
+              {"user":"tmosley","password":"tmosley","host":"localhost","database":"test"},
+  "table_names":
+             {"tablename":"tablename"}
+}
+
