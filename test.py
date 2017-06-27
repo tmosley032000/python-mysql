@@ -6,9 +6,11 @@ from queries import *
 from dml import *
 from dml_statements import *
 from get_random import *
+from create_table import *
 import json
 import pdb
 from random import randint
+
 
 #
 # Assumptions: 
@@ -21,8 +23,8 @@ from random import randint
 # 
 #for using json (db_config.json) file for connection:
 #  "db_config":
-#              {"user":"tmosley","password":"tmosley","host":"localhost","database":"test"}
-with open('db_config.json') as data_file:    
+#              {"user":"tmosley","password":"tmosley","host":"localhost","database":"twith open('db_config.json') as data_file:    
+with open('db_config.json') as data_file:
     data = json.load(data_file)
 
 # for using dict (db_config.py) for connection:
@@ -43,6 +45,17 @@ dbh = connect_db(data['db_config'])
 #dbh = connect_db(db_configs())
 
 db_cursor = dbh.cursor()
+
+# Create your own table:
+# create_table_sample() contains:
+# table_script = "CREATE TABLE IF NOT EXISTS example ( \
+#           id_num INT NOT NULL auto_increment,  \
+#           id_name VARCHAR(40) NOT NULL, \
+#           data VARCHAR(40) ,  \
+#           PRIMARY KEY (id_num) \
+#           )"
+
+db_cursor.execute(create_table_sample())
 
 #
 # modules used in the next calls:
