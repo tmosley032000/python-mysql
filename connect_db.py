@@ -17,4 +17,5 @@ def connect_db(conf):
   "db_config": 
               {"user":"tmosley","password":"tmosley","host":"localhost","database":"test"}
   '''
+    #foo
   return mysql.connector.connect(**conf)
