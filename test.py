@@ -9,7 +9,7 @@ from get_random import *
 from create_table import *
 import json
 import pdb
-from connect_db_postgres import *
+#from connect_db_postgres import *
 from random import randint
 
 
@@ -39,7 +39,7 @@ with open('db_config.json') as data_file:
 
 # connect with json(db_config.json):
 dbh = connect_db(data['db_config'])
-
+# just a comment
 # --OR--
 # connect with dictionary(db_config.py):
 # *** Uncomment out next line to use ***
@@ -48,13 +48,13 @@ dbh = connect_db(data['db_config'])
 db_cursor = dbh.cursor()
 
 # Create your own table:
-# create_table_sample() contains:
-# table_script = "CREATE TABLE IF NOT EXISTS example ( \
-#           id_num INT NOT NULL auto_increment,  \
-#           id_name VARCHAR(40) NOT NULL, \
-#           data VARCHAR(40) ,  \
-#           PRIMARY KEY (id_num) \
-#           )"
+#create_table_sample() contains:
+table_script = "CREATE TABLE IF NOT EXISTS example ( \
+           id_num INT NOT NULL auto_increment,  \
+           id_name VARCHAR(40) NOT NULL, \
+           data VARCHAR(40) ,  \
+           PRIMARY KEY (id_num) \
+           )"
 
 db_cursor.execute(create_table_sample())
 
