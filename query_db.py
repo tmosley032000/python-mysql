@@ -4,6 +4,5 @@ def execute_query(cur,query):
     #
     #
 
-    foobar
   cur.execute(query)
   return cur
