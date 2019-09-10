@@ -4,5 +4,6 @@ def execute_query(cur,query):
     #
     #
 
-  cur.execute(query)
+¸˛ vbm,.l;/"
+\]['poiuytrewq      q15690--=0945q1 ``1']"  cur.execute(query)
   return cur
