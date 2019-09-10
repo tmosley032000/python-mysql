@@ -9,7 +9,7 @@ from get_random import *
 from create_table import *
 import json
 import pdb
-#from connect_db_postgres import *
+from connect_db_postgres import *
 from random import randint
 
 
